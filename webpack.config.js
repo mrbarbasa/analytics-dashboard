@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const root = path.resolve(__dirname, 'src');
 
 module.exports = {
   entry: [
@@ -26,10 +27,8 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        include: root,
+        loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
       }
     ]
   }
