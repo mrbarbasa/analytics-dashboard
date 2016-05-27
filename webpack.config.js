@@ -34,6 +34,10 @@ module.exports = {
         loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015'],
         exclude: /node_modules/,
         include: root
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
       }
     ]
   }
