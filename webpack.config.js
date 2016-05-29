@@ -14,6 +14,11 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
+  resolve: {
+    root: root,
+    extensions: ['', '.js', '.json', '.scss'],
+    modulesDirectories: ['node_modules']
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
@@ -37,7 +42,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+        loaders: [
+          'style',
+          'css?sourceMap',
+          `sass?sourceMap&includePaths[]=${root}/assets/scss`
+        ],
+        exclude: /node_modules/,
+        include: root
       }
     ]
   }
