@@ -6,7 +6,6 @@ const root = path.resolve(__dirname, 'src');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    'webpack-hot-middleware/client',
     path.resolve(__dirname, 'src/index.js')
   ],
   output: {
@@ -27,10 +26,7 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       'React': 'react'
-    }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    })
   ],
   module: {
     loaders: [
