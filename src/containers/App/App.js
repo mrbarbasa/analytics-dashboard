@@ -1,10 +1,12 @@
 import './App.scss';
+import Header from 'components/Sections/Header/Header';
 
 class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <h1>Analytics Dashboard</h1>
+        <Header />
+        {this.props.children}
       </div>
     );
   }
